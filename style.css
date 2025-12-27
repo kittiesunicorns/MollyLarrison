@@ -1,0 +1,62 @@
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px; 
+            padding-bottom: 80px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+        }
+
+        .hero-section {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .hero-bio {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation Links */
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 600;
+            margin-right: 20px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid #000;
+        }
+
+        /* The "Now" Box */
+        .now-section {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+
+        .now-list li {
+            margin-bottom: 12px;
+        }
+
+        /* Mobile Fixes */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            body { padding-top: 40px; padding-left: 20px; padding-right: 20px; }
+        }
+  
