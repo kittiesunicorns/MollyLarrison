@@ -1,62 +1,195 @@
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding-top: 80px; 
-            padding-bottom: 80px;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Lora', serif;
-            font-weight: 600;
-        }
+/* =========================================
+   1. FONTS & IMPORTS
+   ========================================= */
+/* Import Lora (Headings), Inter (Body text), and Cormorant Garamond (Poetry) */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 
-        .hero-section {
-            max-width: 800px;
-            margin-bottom: 60px;
-        }
+/* =========================================
+   2. GLOBAL STYLES
+   ========================================= */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #fcfcfc; /* Soft paper tone for all pages */
+    line-height: 1.6;
+    padding-top: 80px; 
+    padding-bottom: 80px;
+    margin: 0;
+}
 
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #111;
-        }
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: #111;
+}
 
-        .hero-bio {
-            font-size: 1.25rem;
-            color: #555;
-            margin-bottom: 30px;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
 
-        /* Navigation Links */
-        .nav-links a {
-            text-decoration: none;
-            color: #111;
-            font-weight: 600;
-            margin-right: 20px;
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.3s;
-        }
+/* =========================================
+   3. MAIN SITE COMPONENTS (Bio / Index)
+   ========================================= */
+.hero-section {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
 
-        .nav-links a:hover {
-            border-bottom: 2px solid #000;
-        }
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #111;
+}
 
-        /* The "Now" Box */
-        .now-section {
-            background-color: #f8f9fa;
-            padding: 40px;
-            border-radius: 8px;
-            max-width: 800px;
-        }
+.hero-bio {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 30px;
+}
 
-        .now-list li {
-            margin-bottom: 12px;
-        }
+/* Navigation Links (in Hero) */
+.nav-links a {
+    color: #111;
+    font-weight: 600;
+    margin-right: 20px;
+    border-bottom: 2px solid transparent;
+}
 
-        /* Mobile Fixes */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            body { padding-top: 40px; padding-left: 20px; padding-right: 20px; }
-        }
-  
+.nav-links a:hover {
+    border-bottom: 2px solid #000;
+}
+
+/* The "Now" Box */
+.now-section {
+    background-color: #f8f9fa; /* Slightly darker than the paper background */
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.now-list li {
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   4. POETRY STYLES (The "Winged Journey" look)
+   ========================================= */
+.poem-container {
+    max-width: 600px; 
+    margin: 0 auto; /* Centers the container */
+    padding: 20px;
+}
+
+/* Note: We explicitly set the font here so it doesn't use 'Inter' */
+.poem-content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; 
+    line-height: 1.8;  
+    color: #2c2c2c;   
+}
+
+.poem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Remove top margin for the very first title on a page */
+.poem-title:first-of-type {
+    margin-top: 0;
+}
+
+.stanza {
+    margin-bottom: 2rem;
+}
+
+.poem-content p {
+    margin: 0;
+}
+
+/* =========================================
+   5. WRITING CARD STYLES (For Writing.html)
+   ========================================= */
+.writing-card {
+    border: none !important; /* Overrides Bootstrap borders */
+    background: transparent !important;
+    transition: transform 0.3s ease;
+}
+
+.writing-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+}
+
+.card-img-container {
+    width: 100%;
+    height: 300px;
+    background-color: #eef0f2; /* Placeholder gray */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.card-excerpt {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2c2c2c;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+}
+
+.read-link:hover {
+    border-bottom: 1px solid #000;
+    color: #000;
+}
+
+/* =========================================
+   6. RESPONSIVE / MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+    body { 
+        padding-top: 40px; 
+        padding-left: 20px; 
+        padding-right: 20px; 
+    }
+    
+    .hero-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .poem-title {
+        font-size: 1.5rem;
+    }
+}
