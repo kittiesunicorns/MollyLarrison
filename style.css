@@ -1,8 +1,8 @@
 /* =========================================
    1. FONTS & IMPORTS
    ========================================= */
-/* Import Lora (Headings), Inter (Body text), and Cormorant Garamond (Poetry) */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+/* Import Lora (Headings), Inter (Body text), and Cormorant Garamond (Poetry) -- LINKED on pages --  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+*/
 
 /* =========================================
    2. GLOBAL STYLES
@@ -74,44 +74,31 @@ a {
 }
 
 /* =========================================
-   4. POETRY STYLES (The "Winged Journey" look)
+   4. POETRY STYLES (Revised)
    ========================================= */
 .poem-container {
     max-width: 600px; 
-    margin: 0 auto; /* Centers the container */
+    margin: 0 auto;
     padding: 20px;
 }
 
-/* Note: We explicitly set the font here so it doesn't use 'Inter' */
 .poem-content {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem; 
-    line-height: 1.8;  
+    /* Slightly tighter line-height to keep the "thought" together */
+    line-height: 1.5;  
     color: #2c2c2c;   
 }
 
-.poem-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    margin-top: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-/* Remove top margin for the very first title on a page */
-.poem-title:first-of-type {
-    margin-top: 0;
-}
-
 .stanza {
-    margin-bottom: 2rem;
+    /* This creates the silence between stanzas */
+    margin-bottom: 2.5rem; 
 }
 
+/* We use !important here to strictly silence Bootstrap's opinion */
 .poem-content p {
-    margin: 0;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
 }
 
 /* =========================================
