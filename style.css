@@ -180,3 +180,47 @@ a {
         font-size: 1.5rem;
     }
 }
+/* =========================================
+   7. Footnote Styles  
+   ========================================= */ 
+ .footnotes {
+            margin-top: 40px;       /* Adds space above the footnotes */
+            padding-top: 20px;      /* internal spacing */
+            border-top: 1px solid #eee; /* A light line to separate from article */
+            font-size: 0.85em;      /* Makes text about 85% size of main text */
+            color: #555;            /* Slightly softer black for readability */
+        }
+        
+ .footnotes ol {
+            padding-left: 20px;
+        }
+
+.footnotes a {
+            text-decoration: none;  /* Removes underline from the return arrow */
+            margin-left: 5px;
+        }
+
+
+/* =========================================
+   8. AI Posts
+   ========================================= */ 
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        blockquote {
+            border-left: 4px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            font-style: italic;
+        }
+        .caption {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 25px;
+        }
