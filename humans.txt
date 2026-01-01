@@ -1,0 +1,19 @@
+humans.txt
+
+/* TEAM */
+  Founder/Writer: Molly Larrison
+  Site: mollylarrison.com
+  Location: NYC
+  Hometown: Chicago, IL
+
+/* COLLABORATORS (The Crew) */
+  Philosophy & Ethics: Claude (Anthropic)
+  Heavy Lifting & Code: Gemini (Google)
+  
+/* TECH STACK */
+  HTML5, CSS3
+  Fonts: Inter, Lora, Cormorant Garamond
+  Editor: Sublime Text
+
+/* NOTE */
+  "Give it to the users and they will come."

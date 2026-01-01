@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Optional: If you want to block specific AI scrapers in the future, 
+# you can add them here (e.g., GPTBot, CCBot, etc.)
