@@ -12,154 +12,332 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-
-    <title>Get what you want with a well-engineered Prompt | Molly Larrison</title>
-
     <style>
+        /* --- Refined Root Variables --- */
+        :root {
+            --accent-pop: #ffde59; /* Bold Banana Yellow */
+            --link-hover: #111;
+            --text-main: #2c2c2c;
+            --bg-paper: #fcfcfc;
+            --container-max: 850px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-paper);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- High-Impact Marquee --- */
+        .marquee-container {
+            width: 100%;
+            height: 75vh;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+        }
+
+        .marquee-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Article Layout --- */
+        .article-wrapper {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        nav.back-nav {
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav.back-nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* --- Typography --- */
+        h1.article-title-main {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 3rem;
+            color: #111;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Interactive "Pop" Hyperlinks --- */
+        .article-content a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            background-image: linear-gradient(var(--accent-pop), var(--accent-pop));
+            background-position: 0% 90%;
+            background-repeat: no-repeat;
+            background-size: 100% 8px;
+            transition: background-size 0.25s ease-in-out, color 0.2s;
+        }
+
+        .article-content a:hover {
+            background-size: 100% 100%;
+            color: var(--link-hover);
+        }
+
+        /* --- Elegant Image Wrapping --- */
+        .img-wrap-left {
+            float: left;
+            width: 60%;
+            margin-right: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .img-wrap-right {
+            float: right;
+            width: 60%;
+            margin-left: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .img-fluid-large {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+            margin-bottom: 1rem;
+        }
+
+        /* --- Filler Integration (Handsome Pod) --- */
+        .filler-link {
+            display: block;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .filler-link img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .filler-link:hover img {
+            transform: scale(1.02);
+        }
+
+        /* --- Code Blocks & Gems --- */
         .code-block-container {
             position: relative;
-            margin: 1.5rem 0;
-        }
-        .code-block-container pre {
+            margin: 3rem 0;
             background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 0.375rem;
-            padding: 1rem;
-            overflow-x: auto;
-            margin: 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
         }
+
+        .code-block-container pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
         .code-block-container code {
             font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            color: #212529;
+            font-size: 0.95rem;
+            color: #333;
         }
+
         .copy-button {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-            background: #6c757d;
-            color: white;
+            top: 1rem;
+            right: 1rem;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            background: #333;
+            color: #fff;
             border: none;
-            border-radius: 0.25rem;
+            border-radius: 4px;
             cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
+            text-transform: uppercase;
         }
-        .copy-button:hover {
-            opacity: 1;
-        }
-        .copy-button.copied {
-            background: #28a745;
-        }
+
         .gem-field {
-            background: #f8f9fa;
-            border-left: 4px solid #6c757d;
-            padding: 1rem;
-            margin: 1rem 0 1rem 1.5rem;
+            background: #fff;
+            border-left: 4px solid var(--accent-pop);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
+
         .gem-field-label {
             font-family: 'Courier New', monospace;
             font-weight: 600;
-            color: #495057;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #888;
             margin-bottom: 0.5rem;
         }
+
         .gem-field-value {
             font-style: italic;
-            color: #212529;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Utility --- */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        blockquote {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            margin: 4rem 0;
+            padding-left: 2rem;
+            border-left: 5px solid var(--accent-pop);
+            color: #444;
+        }
+
+        hr {
+            margin: 4rem 0;
+            border-color: #eee;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1.article-title-main { font-size: 2.5rem; }
+            .img-wrap-left, .img-wrap-right {
+                float: none;
+                width: 100%;
+                margin: 0 0 2rem 0;
+            }
+            .marquee-container { height: 50vh; }
         }
     </style>
-</head>    
+</head>
 <body>
-    <div class="container mt-5 mb-5">
-        
-    <nav class="mb-5">
-        <a href="writing.html" class="text-muted small">&larr; Back to Writings</a>
-    </nav>
 
-    <article>
+ <div class="marquee-container">
+        <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls">
+    </div>  
 
-        <div class="article-container">
-            
+     
+    <div class="article-wrapper">
+        <nav class="back-nav">
+            <a href="writing.html">&larr; Back to Writings</a>
+        </nav>
+
+        <article class="article-content clearfix">
             <h1 class="article-title-main">Get what you want with a well-engineered Prompt</h1>
-        
-            <div class="article-content">
-      
-                <p>I was listening to one of my favorite pods in the entire universe, <a href="https://handsomepod.com/">Handsome</a>, and in <a href="https://youtu.be/cXqLI0ul0mA?si=EymkqjDu6dWJaWY6">the episode where Will Arnett asks the question</a> (#spoiler), "If you had to live in a sitcom, which would it be?" Fortune replies, "This one is so easy for me." Nope, not "Alf." We find Fortune describing the famously sassy Golden Girls to Mae and Tig, who have never watched a full episode.</p>
 
-                <p>As Fortune describes the characters in vivid detail—as if gossiping about the ladies in the next room—Tig swings her arm around and asks "If we were on the Golden Girls, who would be who?"</p>
+            <p>I was listening to one of my favorite pods in the entire universe, <a href="https://handsomepod.com/" target="_blank">Handsome</a>, and in <a href="https://youtu.be/cXqLI0ul0mA?si=EymkqjDu6dWJaWY6">the episode where Will Arnett asks the question</a> (#spoiler), "If you had to live in a sitcom, which would it be?" Fortune replies, "This one is so easy for me." Nope, not "Alf." We find Fortune describing the famously sassy Golden Girls to Mae and Tig, who have never watched a full episode.</p>
 
-                <p>This is why I love Handsome. The hosts are playful, and conversations wander freely but always circle back to what it means to be human. It's an accepting show—everyone is welcome.</p>
 
-                <p>The next morning, I woke up imagining these three as the Golden Girls. Hello, Nano Banana! I cracked open my MacBook Pro, typed in <a href="https://gemini.google.com">gemini.google.com</a> and paused at the blinking cursor.</p>
+            <p>As Fortune describes the characters in vivid detail—as if gossiping about the ladies in the next room—Tig swings her arm around and asks "If we were on the Golden Girls, who would be who?"</p>
 
-                <p>What prompt do I start with? I can visualize it in my mind, but how do I get it onto the screen? So many nuances: Tig, Mae, and Fortune becoming Rose, Sophia, and Blanche (Thomas, you got tagged as Dorothy and will remain beautifully invisible—like Snuffleupagus behind the scenes). Trying to use AI responsibly, here's how I approached it.</p>
+            <p>This is why I love Handsome. The hosts are playful, and conversations wander freely but always circle back to what it means to be human. It's an accepting show—everyone is welcome.</p>
 
-                <p>I decided to create a Gem that specializes in prompts. This would handle my Handsome Pod project and become my prompting agent for future work—just call up my Gem whenever I need help.</p>
+            <p>The next morning, I woke up imagining these three as the Golden Girls. Hello, Nano Banana! I cracked open my MacBook Pro, typed in <code><a href="https://gemini.google.com/app">gemini.google.com</a></code> and paused at the open canvas. I knew what I wanted to create. It was in my head.</p> 
 
-                <img src="images/1_GemManager.png" alt="Gemini Gem Manager interface" class="img-fluid my-4">
 
-                <hr>
+ 
+        <div class="img-center">    
+           <img src="images/GeminiStartPage.png" alt="Gemini app homepage" class="img-fluid-large"> </div>
 
-                <h2>Building the Gem</h2>
+            <p>What prompt do I start with? I can visualize it in my mind, but how do I get it onto the screen? So many nuances: Tig, Mae, and Fortune becoming Rose, Sophia, and Blanche (Thomas, you got tagged as Dorothy and will remain beautifully invisible—like Snuffleupagus behind the scenes). Trying to use AI responsibly, here's how I approached it.</p>
 
-                <p>A Gem is like a mini-agent trained to behave a certain way. Think of it as your expert consultant. But before it can help, you need to tell it who it is and how it serves you. I clicked "New Gem."</p>
+            <p>I decided to create a Gem that specializes in prompts. This would handle my Handsome Pod project and become my prompting agent for future work—just call up my Gem whenever I need help.</p>
+            
 
-                <p>Staring at the blank form. Gah.</p>
+            <p>I decided to create a Gem that specializes in prompts. This would handle my Handsome Pod project and become my prompting agent for future work—just call up my Gem whenever I need help.</p>
 
-                <img src="images/2_NewGem.png" alt="New Gem form in Gemini" class="img-fluid my-4">
+            <hr>
 
-                <div class="gem-field">
-                    <div class="gem-field-label">Name</div>
-                    <div class="gem-field-value">Make it obvious so I can find it when I have 100 Gems.</div>
-                    <div class="mt-2">"Prompt maker"</div>
-                </div>
+            <h2>Building the Gem</h2>
 
-                <div class="gem-field">
-                    <div class="gem-field-label">Description</div>
-                    <div class="gem-field-value">This helps me remember in case my brain atrophies from AI overuse.</div>
-                    <div class="mt-2">"Helps with writing prompts"</div>
-                </div>
+            <div class="img-wrap-right">
+                <img src="images/1_GemManager.png" alt="Gemini Gem Manager interface" class="img-fluid-large">
+            </div>
 
-                <div class="gem-field">
-                    <div class="gem-field-label">Knowledge</div>
-                    <div class="gem-field-value">Here's where I hit a snag. I need the best prompt engineering guides to train this thing properly.</div>
-                </div>
 
-                <img src="images/3_GemDropDown.png" alt="Gem knowledge upload dropdown menu" class="img-fluid my-4">
+            <p>A Gem is like a mini-agent trained to behave a certain way. Think of it as your expert consultant. But before it can help, you need to tell it who it is and how it serves you. I clicked "New Gem."</p>
 
-                <p>After a quick search, I found solid resources to feed the Gem. I could refine it later—right now I just wanted my Golden Girls image. So I created a NotebookLM filled with prompt guides and added that as the knowledge source.</p>
+            <p>Staring at the blank form. Gah.</p>
 
-                <img src="images/4_PromptMaker.png" alt="Prompt Maker Gem with NotebookLM uploaded" class="img-fluid my-4">
+                 <div class="img-center">
+                <img src="images/2_NewGem.png" alt="New Gem form in Gemini" class="img-fluid-large">
+            </div>
 
-                <hr>
+            <div class="gem-field">
+                <div class="gem-field-label">Name</div>
+                <div class="gem-field-value">Make it obvious so I can find it when I have 100 Gems.</div>
+                <div class="mt-2">"Prompt maker"</div>
+            </div>
 
-                <h2>Prompting the Prompt Maker</h2>
+            <div class="gem-field">
+                <div class="gem-field-label">Description</div>
+                <div class="gem-field-value">This helps me remember in case my brain atrophies from AI overuse.</div>
+                <div class="mt-2">"Helps with writing prompts"</div>
+            </div>
+       
+            <div class="gem-field">
+                <div class="gem-field-label">Knowledge</div>
+                <div class="gem-field-value">Here's where I hit a snag. I need the best prompt engineering guides to train this thing properly.</div>
+            </div>
+              
+            <p>After a quick search, I found solid resources to feed the Gem. I could refine it later—right now I just wanted my Golden Girls image. So I created a NotebookLM filled with prompt guides and added that as the knowledge source.</p>
 
-                <p>After uploading the Notebook, I prompted my "Prompt maker" Gem:</p>
+            <hr>
 
-                <blockquote>
-                    <em>Write a prompt to ask Nano Banana to augment individuals into characters from TV shows. For example, depict Tig Notaro as Sophia Petrillo from the Golden Girls, and place her with Mae Martin as Rose and Fortune as Blanche.</em>
-                </blockquote>
+            <h2>Prompting the Prompt Maker</h2>
+                        <img src="images/4_PromptMaker.png" alt="Prompt Maker Gem with NotebookLM uploaded" class="img-fluid-large my-5">
 
-                <p>This prompt was gonna slay. 🥷</p>
+            <p>After uploading the Notebook, I prompted my "Prompt maker" Gem:</p>
 
-                <p>The Gem delivered—not just the prompt itself, but an introduction explaining <em>why</em> it worked. Since I'd asked the Gem to teach me how to prompt, it provided a full breakdown of its reasoning.</p>
+            <blockquote>
+                <em>Write a prompt to ask Nano Banana to augment individuals into characters from TV shows. For example, depict Tig Notaro as Sophia Petrillo from the Golden Girls, and place her with Mae Martin as Rose and Fortune as Blanche.</em>
+            </blockquote>
 
-                <p>Here's what it gave me:</p>
+            <p>This prompt was gonna slay. 🥷</p>
 
-                <h3>The Prompt</h3>
+            <p>The Gem delivered—not just the prompt itself, but an introduction explaining <em>why</em> it worked. Since I'd asked the Gem to teach me how to prompt, it provided a full breakdown of its reasoning.</p>
 
-                <div class="code-block-container">
-                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                    <pre><code>System Role: Image Generation
+            <p>Here's what it gave me:</p>
+
+            <h3>The Prompt</h3>
+
+            <div class="code-block-container">
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                <pre><code>System Role: Image Generation
 Subject: Comedians cast as The Golden Girls
 Style: Cinematic, Photorealistic, 80s Sitcom Lighting
 
@@ -185,28 +363,28 @@ Character Mapping:
 Setting:
 A 1980s Miami-style living room with rattan furniture, floral print upholstery, 
 and pastel colors (peach and teal).</code></pre>
-                </div>
+            </div>
 
-                <h3>Why This Works</h3>
+            <h3>Why This Works</h3>
 
-                <p>The Gem explained its approach using prompt engineering best practices:</p>
+            <p>The Gem explained its approach using prompt engineering best practices:</p>
 
-                <ul>
-                    <li><strong>Clear instructions:</strong> Rather than a vague request, it broke the task into step-by-step components (character mapping, visuals, expressions, setting)</li>
-                    <li><strong>Entity inputs:</strong> It treated the comedians and TV characters as distinct entities, helping the model separate the subject (comedian) from the style target (character)</li>
-                    <li><strong>Decomposition:</strong> Instead of one long description, it separated the request into manageable pieces—Visuals, Expression, and Setting</li>
-                    <li><strong>Contextual constraints:</strong> Adding the Miami living room detail gave the model specific parameters for a cohesive image</li>
-                </ul>
+            <ul>
+                <li><strong>Clear instructions:</strong> Rather than a vague request, it broke the task into step-by-step components (character mapping, visuals, expressions, setting)</li>
+                <li><strong>Entity inputs:</strong> It treated the comedians and TV characters as distinct entities, helping the model separate the subject (comedian) from the style target (character)</li>
+                <li><strong>Decomposition:</strong> Instead of one long description, it separated the request into manageable pieces—Visuals, Expression, and Setting</li>
+                <li><strong>Contextual constraints:</strong> Adding the Miami living room detail gave the model specific parameters for a cohesive image</li>
+            </ul>
 
-                <hr>
+            <hr>
 
-                <h2>The Result</h2>
+            <h2>The Result</h2>
 
-                <p>I fed the revised prompt into Gemini, tagging Nano Banana to generate the image:</p>
+            <p>I fed the revised prompt into Gemini, tagging Nano Banana to generate the image:</p>
 
-                <div class="code-block-container">
-                    <button class="copy-button" onclick="copyCode(this)">Copy</button>
-                    <pre><code>System Role: Image Generation
+            <div class="code-block-container">
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                <pre><code>System Role: Image Generation
 Subject: Comedians cast as The Golden Girls
 Style: Cinematic, Photorealistic, Medium Shot Group Portrait, 80s Sitcom Lighting
 
@@ -232,35 +410,30 @@ Fortune Feimster as Blanche Devereaux:
 Setting: 
 A 1980s Miami-style living room with rattan furniture, floral print upholstery, 
 and pastel colors (peach and teal).</code></pre>
-                </div>
-
-                <p>Pure magic:</p>
-
-                <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls in a 1980s Miami living room" class="img-fluid mb-4">
-
-                <hr>
-
-                <p>This is what I love about working with AI: it's not about knowing everything upfront. It's about building the right tools to figure things out as you go.</p>
-
             </div>
-        </div>
-    </article>
+
+            <p>Pure magic:</p>
+
+          <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls" class="img-fluid-large mb-5">
+
+            <hr>
+
+            <p>This is what I love about working with AI: I can act on my imagination. It's not about knowing everything upfront. It's about building the right tools to figure things out as you go. </p>
+
+            <a href="https://handsomepod.com/collections/" class="filler-link" target="_blank">
+                <img src="images/keepItHandsome.png" alt="Keep It Handsome Swag">
+
+        </article>
+    </div>
 
     <script>
         function copyCode(button) {
-            const codeBlock = button.nextElementSibling.querySelector('code');
-            const text = codeBlock.textContent;
+            const pre = button.nextElementSibling;
+            const text = pre.textContent;
             
             navigator.clipboard.writeText(text).then(() => {
                 button.textContent = 'Copied!';
-                button.classList.add('copied');
-                
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                    button.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
+                setTimeout(() => { button.textContent = 'Copy'; }, 2000);
             });
         }
     </script>
