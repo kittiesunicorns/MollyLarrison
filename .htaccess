@@ -1,4 +1,9 @@
-# Force HTTPS for all traffic
+# 1. Force HTTPS
 RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.mollylarrison.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://mollylarrison.com/$1 [R=301,L]
+
+# 2. Prevent directory browsing (Standard security)
+Options -Indexes
+
+# 3. Your .gitignore already handles the rest!
