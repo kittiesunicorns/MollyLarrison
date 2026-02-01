@@ -1,0 +1,9 @@
+# Mac system files
+.DS_Store
+
+# Sublime Text workspace (local layout settings)
+*.sublime-workspace
+
+# Build folders or log files
+node_modules/
+*.log
