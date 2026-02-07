@@ -73,6 +73,24 @@ a {
     margin-bottom: 12px;
 }
 
+/* Essay Design */
+#intro-essay {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#intro-essay p {
+    margin-bottom: 1.5rem;
+}
+
+#intro-essay em {
+    font-style: italic;
+    color: #004a99; /* A subtle blue to highlight your 'critical curiosity' */
+}
+
 /* =========================================
    4. POETRY STYLES (Revised)
    ========================================= */
@@ -222,74 +240,60 @@ a {
    8. TECHNICAL ARTICLE STYLES (Trading Up)
    ========================================= */
 
-/* 1. The Container: Clean layout with "Smart" Typography */
 .article-content {
-    font-family: 'Inter', sans-serif; /* Enforces sans-serif everywhere */
-    font-size: 1.05rem;               /* Slightly larger for modern readability */
-    font-weight: 300;                 /* Light weight looks more technical/precise */
-    line-height: 1.7;                 /* Breathable spacing */
-    color: #2c2c2c;                   /* Soft black */
-    max-width: 680px;                 /* Optimal line length for reading */
-    margin: 0 auto;                   /* Centers the content block */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem; /* Slightly larger for your mollylarrison.com intro */
+    font-weight: 300;
+    line-height: 1.7;
+    color: #2c2c2c;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
-/* 2. Headings: Override the serif 'Lora' for a technical look */
+/* Specific styling for your new intro essay */
+.article-content p {
+    margin-bottom: 1.8rem;
+}
+
+/* The 'Critically Curious' and Son's Title italics */
+.article-content em {
+    font-style: italic;
+    color: #004a99; /* Your subtle 'Google blue' tribute */
+    font-weight: 400;
+}
+
+/* The Chrysalis: Making the metaphor stand out */
+.chrysalis-highlight {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-style: italic;
+    color: #111;
+    border-bottom: 2px solid #eef0f2;
+}
+
 .article-content h1, 
 .article-content h2, 
 .article-content h3 {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    letter-spacing: -0.02em;          /* Tight tracking looks professional */
+    letter-spacing: -0.02em;
     margin-top: 3rem;
     margin-bottom: 1.2rem;
     color: #111;
 }
 
-/* 3. Images: Small, Centered, Shadowed */
-.article-content img {
-    display: block;
-    max-width: 60%;         /* Keeps images smaller/constrained */
-    height: auto;
-    margin: 3rem auto;      /* Significant whitespace above/below */
-    
-    /* The "Smart" Look: Subtle border + soft shadow */
-    border: 1px solid #ebebeb;
-    border-radius: 4px;     /* Small radius is more technical than large */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, elevated lift */
-}
-
-/* 4. Lists: Clean indentation */
-.article-content ul {
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-}
-
-.article-content li {
-    margin-bottom: 0.75rem;
-    padding-left: 0.5rem;
-}
-
-/* 5. Links: Technical "Reference" Style */
+/* Links: Technical "Reference" Style */
 .article-content a {
     color: #333;
     text-decoration: none;
-    border-bottom: 1px solid #bbb; /* Minimalist underline */
+    border-bottom: 1px solid #bbb;
     transition: all 0.2s ease;
+    word-break: break-all; /* Prevents long URLs like the Nobel link from breaking layout */
 }
 
 .article-content a:hover {
-    background-color: #f0f0f0;     /* Highlight effect like a text selection */
+    background-color: #f0f0f0;
     border-bottom-color: #000;
     color: #000;
 }
-
-/* 6. Blockquotes (optional if you use them) */
-.article-content blockquote {
-    border-left: 3px solid #333;
-    background: #f9f9f9;
-    padding: 1rem 1.5rem;
-    margin: 2rem 0;
-    font-style: normal; /* Keep it upright/modern */
-    font-size: 0.95em;
-    color: #555;
 }
