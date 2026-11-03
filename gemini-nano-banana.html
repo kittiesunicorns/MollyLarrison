@@ -3,264 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Saturday morning jaunt with Gemini, Nano Banana, and prompt engineering.">
+    <title>Get what you want with a well-engineered prompt | molly larrison</title>
+    <meta name="description" content="Building a Gem to write the perfect prompt for Nano Banana, starring the Golden Girls.">
     <meta name="author" content="Molly Larrison">
-
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://mollylarrison.com/images/GoldenGirlsHandsomePod.jpg">
-    <link rel="icon" type="image/png" href="favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        /* --- Refined Root Variables --- */
-        :root {
-            --accent-pop: #ffde59; /* Bold Banana Yellow */
-            --link-hover: #111;
-            --text-main: #2c2c2c;
-            --bg-paper: #fcfcfc;
-            --container-max: 850px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-paper);
-            color: var(--text-main);
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* --- High-Impact Marquee --- */
-        .marquee-container {
-            width: 100%;
-            height: 75vh;
-            overflow: hidden;
-            position: relative;
-            background-color: #000;
-        }
-
-        .marquee-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* --- Article Layout --- */
-        .article-wrapper {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        nav.back-nav {
-            margin-bottom: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav.back-nav a {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* --- Typography --- */
-        h1.article-title-main {
-            font-family: 'Lora', serif;
-            font-size: 3.5rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 3rem;
-            color: #111;
-        }
-
-        h2 {
-            font-family: 'Lora', serif;
-            font-weight: 600;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        p {
-            font-weight: 300;
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-        }
-
-        /* --- Interactive "Pop" Hyperlinks --- */
-        .article-content a {
-            color: inherit;
-            text-decoration: none;
-            font-weight: 500;
-            background-image: linear-gradient(var(--accent-pop), var(--accent-pop));
-            background-position: 0% 90%;
-            background-repeat: no-repeat;
-            background-size: 100% 8px;
-            transition: background-size 0.25s ease-in-out, color 0.2s;
-        }
-
-        .article-content a:hover {
-            background-size: 100% 100%;
-            color: var(--link-hover);
-        }
-
-        /* --- Elegant Image Wrapping --- */
-        .img-wrap-left {
-            float: left;
-            width: 60%;
-            margin-right: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .img-wrap-right {
-            float: right;
-            width: 60%;
-            margin-left: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .img-fluid-large {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
-            margin-bottom: 1rem;
-        }
-
-        /* --- Filler Integration (Handsome Pod) --- */
-        .filler-link {
-            display: block;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .filler-link img {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .filler-link:hover img {
-            transform: scale(1.02);
-        }
-
-        /* --- Code Blocks & Gems --- */
-        .code-block-container {
-            position: relative;
-            margin: 3rem 0;
-            background: #f8f9fa;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .code-block-container pre {
-            margin: 0;
-            overflow-x: auto;
-        }
-
-        .code-block-container code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-            color: #333;
-        }
-
-        .copy-button {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            background: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .gem-field {
-            background: #fff;
-            border-left: 4px solid var(--accent-pop);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-
-        .gem-field-label {
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
-
-        .gem-field-value {
-            font-style: italic;
-            color: #444;
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- Utility --- */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        blockquote {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            margin: 4rem 0;
-            padding-left: 2rem;
-            border-left: 5px solid var(--accent-pop);
-            color: #444;
-        }
-
-        hr {
-            margin: 4rem 0;
-            border-color: #eee;
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            h1.article-title-main { font-size: 2.5rem; }
-            .img-wrap-left, .img-wrap-right {
-                float: none;
-                width: 100%;
-                margin: 0 0 2rem 0;
-            }
-            .marquee-container { height: 50vh; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
- <div class="marquee-container">
-        <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls">
-    </div>  
+<p class="frontispiece">
+    molly larrison: notes on ai, tech, and being human.<br>
+    <a href="index.html">home</a>. <a href="writing.html">the plex</a>. <a href="nibbles.html">nibbles</a>. <a href="poems.html">poems</a>. <a href="projects.html">projects</a>. <a href="about.html">about</a>.
+</p>
 
-     
-    <div class="article-wrapper">
-        <nav class="back-nav">
-            <a href="writing.html">&larr; Back to Writings</a>
-        </nav>
-
-        <article class="article-content clearfix">
-            <h1 class="article-title-main">Get what you want with a well-engineered Prompt</h1>
-
-            <p>I was listening to one of my favorite pods in the entire universe, <a href="https://handsomepod.com/" target="_blank">Handsome</a>, and in <a href="https://youtu.be/cXqLI0ul0mA?si=EymkqjDu6dWJaWY6">the episode where Will Arnett asks the question</a> (#spoiler), "If you had to live in a sitcom, which would it be?" Fortune replies, "This one is so easy for me." Nope, not "Alf." We find Fortune describing the famously sassy Golden Girls to Mae and Tig, who have never watched a full episode.</p>
-
+<article>
+<h1>Get what you want with a well-engineered prompt</h1>
+<p class="subtitle">February 2026</p>
+<p>I was listening to one of my favorite pods in the entire universe, <a href="https://handsomepod.com/" target="_blank">Handsome</a>, and in <a href="https://youtu.be/cXqLI0ul0mA?si=EymkqjDu6dWJaWY6">the episode where Will Arnett asks the question</a> (#spoiler), "If you had to live in a sitcom, which would it be?" Fortune replies, "This one is so easy for me." Nope, not "Alf." We find Fortune describing the famously sassy Golden Girls to Mae and Tig, who have never watched a full episode.</p>
 
             <p>As Fortune describes the characters in vivid detail—as if gossiping about the ladies in the next room—Tig swings her arm around and asks "If we were on the Golden Girls, who would be who?"</p>
 
@@ -268,15 +33,9 @@
 
             <p>The next morning, I woke up imagining these three as the Golden Girls. Hello, Nano Banana! I cracked open my MacBook Pro, typed in <code><a href="https://gemini.google.com/app">gemini.google.com</a></code> and paused at the open canvas. I knew what I wanted to create. It was in my head.</p> 
 
-
- 
-        <div class="img-center">    
-           <img src="images/GeminiStartPage.png" alt="Gemini app homepage" class="img-fluid-large"> </div>
+        <figure><img src="images/GeminiStartPage.png" alt="Gemini app homepage"></figure>
 
             <p>What prompt do I start with? I can visualize it in my mind, but how do I get it onto the screen? So many nuances: Tig, Mae, and Fortune becoming Rose, Sophia, and Blanche (Thomas, you got tagged as Dorothy and will remain beautifully invisible—like Snuffleupagus behind the scenes). Trying to use AI responsibly, here's how I approached it.</p>
-
-            <p>I decided to create a Gem that specializes in prompts. This would handle my Handsome Pod project and become my prompting agent for future work—just call up my Gem whenever I need help.</p>
-            
 
             <p>I decided to create a Gem that specializes in prompts. This would handle my Handsome Pod project and become my prompting agent for future work—just call up my Gem whenever I need help.</p>
 
@@ -284,29 +43,24 @@
 
             <h2>Building the Gem</h2>
 
-            <div class="img-wrap-right">
-                <img src="images/1_GemManager.png" alt="Gemini Gem Manager interface" class="img-fluid-large">
-            </div>
-
+            <figure><img src="images/1_GemManager.png" alt="Gemini Gem Manager interface"></figure>
 
             <p>A Gem is like a mini-agent trained to behave a certain way. Think of it as your expert consultant. But before it can help, you need to tell it who it is and how it serves you. I clicked "New Gem."</p>
 
             <p>Staring at the blank form. Gah.</p>
 
-                 <div class="img-center">
-                <img src="images/2_NewGem.png" alt="New Gem form in Gemini" class="img-fluid-large">
-            </div>
+                 <figure><img src="images/2_NewGem.png" alt="New Gem form in Gemini"></figure>
 
             <div class="gem-field">
                 <div class="gem-field-label">Name</div>
                 <div class="gem-field-value">Make it obvious so I can find it when I have 100 Gems.</div>
-                <div class="mt-2">"Prompt maker"</div>
+                <div>"Prompt maker"</div>
             </div>
 
             <div class="gem-field">
                 <div class="gem-field-label">Description</div>
                 <div class="gem-field-value">This helps me remember in case my brain atrophies from AI overuse.</div>
-                <div class="mt-2">"Helps with writing prompts"</div>
+                <div>"Helps with writing prompts"</div>
             </div>
        
             <div class="gem-field">
@@ -319,7 +73,7 @@
             <hr>
 
             <h2>Prompting the Prompt Maker</h2>
-                        <img src="images/4_PromptMaker.png" alt="Prompt Maker Gem with NotebookLM uploaded" class="img-fluid-large my-5">
+                        <img src="images/4_PromptMaker.png" alt="Prompt Maker Gem with NotebookLM uploaded">
 
             <p>After uploading the Notebook, I prompted my "Prompt maker" Gem:</p>
 
@@ -335,7 +89,7 @@
 
             <h3>The Prompt</h3>
 
-            <div class="code-block-container">
+            <div class="code">
                 <button class="copy-button" onclick="copyCode(this)">Copy</button>
                 <pre><code>System Role: Image Generation
 Subject: Comedians cast as The Golden Girls
@@ -382,7 +136,7 @@ and pastel colors (peach and teal).</code></pre>
 
             <p>I fed the revised prompt into Gemini, tagging Nano Banana to generate the image:</p>
 
-            <div class="code-block-container">
+            <div class="code">
                 <button class="copy-button" onclick="copyCode(this)">Copy</button>
                 <pre><code>System Role: Image Generation
 Subject: Comedians cast as The Golden Girls
@@ -414,28 +168,27 @@ and pastel colors (peach and teal).</code></pre>
 
             <p>Pure magic:</p>
 
-          <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls" class="img-fluid-large mb-5">
+          <img src="images/GoldenGirlsHandsomePod.jpg" alt="Tig, Mae, and Fortune as The Golden Girls">
 
             <hr>
 
             <p>This is what I love about working with AI: I can act on my imagination. It's not about knowing everything upfront. It's about building the right tools to figure things out as you go. </p>
 
-            <a href="https://handsomepod.com/collections/" class="filler-link" target="_blank">
-                <img src="images/keepItHandsome.png" alt="Keep It Handsome Swag">
+            <p><a href="https://handsomepod.com/collections/" target="_blank">
+                <img src="images/keepItHandsome.png" alt="Keep It Handsome Swag"></a></p>
 
-        </article>
-    </div>
+</article>
 
-    <script>
-        function copyCode(button) {
-            const pre = button.nextElementSibling;
-            const text = pre.textContent;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                button.textContent = 'Copied!';
-                setTimeout(() => { button.textContent = 'Copy'; }, 2000);
-            });
-        }
-    </script>
+<footer class="site">&copy; 2026 Molly Larrison.</footer>
+
+<script>
+    function copyCode(button) {
+        const text = button.nextElementSibling.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            button.textContent = 'Copied!';
+            setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        });
+    }
+</script>
 </body>
 </html>
